@@ -1,0 +1,28 @@
+ <h>search author by number of books</h>
+ 
+  {{ form_start(f) }}
+{{ form_row(f) }}
+{{ form_end(f) }}  
+
+<table border="3">
+    <tr>
+        <td>Id</td>
+        <td>username</td>
+        <td>email</td>
+        <td>Nbr of books</td>
+        <td>Action</td>
+    </tr>
+    {% for a in author %}
+    <tr>
+        <td>{{a.id}}</td>
+        <td>{{a.Username |upper}}</td>
+        <td>{{a.Email}}</td>
+        <td>{{a.nbbook}}</td>
+        <td><a href="{{path('addformauthor',{'id':a.id})}}">add</a></td>
+        <td><a href="{{path('editauthor',{'id':a.id})}}">edit</a></td>
+        <td><a href="{{path('deleteauthor',{'id':a.id})}}">delete</a></td>
+    </tr>
+    {% endfor %}
+</table>
+
+ <td>supprimer les auteurs with 0 books  <a href="{{path('app_deleteABook')}}">delete</a>

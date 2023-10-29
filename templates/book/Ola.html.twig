@@ -1,0 +1,12 @@
+<table border="1">
+   
+    <tr>
+       <dt >Titre :</dt>
+        <dd>{{ books.title }}</dd>
+        <dt>Auteur :</dt>
+        <dd>{{ livre.getAuthorId().getUsername() }}</dd>
+        <dt>Date de Publication :</dt>
+        <dd>{{ books.publicationDate|date('Y-m-d H:i:s') }}</dd>
+  <a href="{{ path('showBook') }}">Retour à la liste des livres</a>
+    
+    </table>

@@ -1,0 +1,32 @@
+<h1>Liste Books</h1><br><br>
+
+ {{ form_start(f) }}
+{{ form_row(f.Ref) }}
+{{ form_end(f) }} 
+
+
+<table border="3">
+    <tr>
+        <td>titel</td>
+        <td>category</td>
+        <td>publication date</td>
+        <td>published</td>
+        <td>author</td>
+        <td>Action</td>
+    </tr>
+    {% for b in books %}
+    <tr>
+        <td>{{b.title}}</td>
+        <td>{{b.category}}</td>
+        <td>{{b.publicationDate|date('Y-m-d H:i:s')}}</td>
+        <td>{{b.published}}</td>
+        <td>{{b.author.Username}}</td>
+        <td><a href="{{path('add',{'id':b.Id})}}">add</a></td>
+         <td><a href="{{path('edit',{'id':b.Id})}}">edit</a></td>
+         <td><a href="{{path('delete',{'id':b.Id})}}">delete</a></td>
+       <td><a href="{{path('showo',{'id':b.title})}}">show</a></td>
+    </tr>
+    {% endfor %}
+</table>
+<p>Number of books published: {{ books|length }}</p>
+<p>Number of books no published: {{ books|length }}</p>
